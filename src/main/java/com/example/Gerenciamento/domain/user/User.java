@@ -3,7 +3,7 @@ package com.example.Gerenciamento.domain.user;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Table(name="user")
+@Table(name="login")
 @Entity(name="user")
 @Getter
 @Setter
