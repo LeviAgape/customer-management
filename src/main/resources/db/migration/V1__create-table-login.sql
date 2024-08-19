@@ -1,0 +1,5 @@
+CREATE TABLE login(
+    id TEXT PRIMARY KEY NOT NULL,
+    login TEXT NOT NULL,
+    password TEXT NOT NULL
+)
