@@ -18,7 +18,7 @@ public record RequestCourt(
 
         String processStatus,
 
-        String pendencies,
+        String pending,
 
         String observation,
 

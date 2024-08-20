@@ -1,7 +1,9 @@
 package com.example.Gerenciamento.domain.court;
 
 import com.example.Gerenciamento.domain.user.RequestUser;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,30 +20,44 @@ import java.time.LocalDate;
 @Entity(name="court")
 public class Court {
 
+    @Id
+    @Column(name = "number_process")
     private String numberProcess;
 
+    @Column(name = "forum_name")
     private String forumName;
 
+    @Column(name = "forum_number")
     private Integer forumNumber;
 
+    @Column(name = "author")
     private String author;
 
+    @Column(name = "defendant")
     private String defendant;
 
+    @Column(name = "procedural_situation")
     private String proceduralSituation;
 
+    @Column(name = "process_status")
     private String processStatus;
 
-    private String pendencies;
+    @Column(name = "pending")
+    private String pending;
 
+    @Column(name = "observation", nullable = true)
     private String observation;
 
+    @Column(name = "process_date")
     private LocalDate processDate;
 
+    @Column(name = "partner")
     private String partner;
 
+    @Column(name = "department")
     private String department;
 
+    @Column(name = "win_or_lose")
     private Boolean winOrLose;
 
     public Court(RequestCourt requestCourt){
@@ -52,7 +68,7 @@ public class Court {
         this.defendant = requestCourt.defendant();
         this.proceduralSituation = requestCourt.proceduralSituation();
         this.processStatus = requestCourt.processStatus();
-        this.pendencies = requestCourt.pendencies();
+        this.pending = requestCourt.pending();
         this.observation = requestCourt.observation();
         this.processDate = requestCourt.processDate();
         this.partner = requestCourt.partner();
