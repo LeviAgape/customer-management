@@ -1,5 +1,5 @@
 CREATE TABLE court (
-    number_process TEXT NOT NULL,
+    number_process TEXT PRIMARY KEY NOT NULL,
     forum_name TEXT NOT NULL,
     forum_number INTEGER NOT NULL,
     author TEXT NOT NULL,
