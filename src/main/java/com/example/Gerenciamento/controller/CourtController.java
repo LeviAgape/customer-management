@@ -19,7 +19,12 @@ public class CourtController {
     }
 
     @GetMapping("/{numberProcess}")
-    public ResponseEntity findByiId(@PathVariable String numberProcess){
+    public ResponseEntity findById(@PathVariable String numberProcess){
         return courtService.findById(numberProcess);
+    }
+
+    @GetMapping("/find/{defendant}")
+    public ResponseEntity findByDefendant(@PathVariable String defendant){
+        return courtService.findByDefendant(defendant);
     }
 }
