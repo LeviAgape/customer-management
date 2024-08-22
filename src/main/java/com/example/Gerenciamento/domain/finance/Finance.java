@@ -1,6 +1,7 @@
 package com.example.Gerenciamento.domain.finance;
 
 
+import com.example.Gerenciamento.domain.court.Court;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,25 +16,31 @@ import lombok.Setter;
 @Entity(name="finance")
 public class Finance {
 
-    @Id @GeneratedValue (strategy = GenerationType.UUID)
-    String id;
+    @Id
+    @Column(name = "number_process")
+    private String number_process;
 
     @Column(name = "value_process")
-    Float valueProcess;
+    private Float valueProcess;
 
     @Column(name = "portion")
-    Float portion;
+    private Float portion;
 
     @Column(name = "percent")
-    Double percent;
+    private Double percent;
 
     @Column(name = "value_percent")
-    Float valuePercent;
+    private Float valuePercent;
+
+    @OneToOne
+    @JoinColumn(name = "number_process", referencedColumnName = "number_process", insertable = false, updatable = false)
+    private Court court;
 
     public Finance (RequestFinance requestFinance){
         this.valueProcess = requestFinance.valueProcess();
         this.portion = requestFinance.portion();
         this.percent = requestFinance.percent();
         this.valuePercent = requestFinance.valuePercent();
+        this.number_process = requestFinance.number_process();
     }
 }

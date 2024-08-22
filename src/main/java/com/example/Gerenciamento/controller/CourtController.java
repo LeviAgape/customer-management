@@ -1,6 +1,8 @@
 package com.example.Gerenciamento.controller;
 
 import com.example.Gerenciamento.domain.court.CourtService;
+import com.example.Gerenciamento.domain.court.RequestCourt;
+import com.example.Gerenciamento.domain.finance.RequestFinance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -26,5 +28,10 @@ public class CourtController {
     @GetMapping("/find/{defendant}")
     public ResponseEntity findByDefendant(@PathVariable String defendant){
         return courtService.findByDefendant(defendant);
+    }
+
+    @PostMapping
+    public ResponseEntity createCourt(@Validated @RequestBody RequestCourt courtData, @Validated @RequestBody RequestFinance financeData){
+           return courtService.createCourt(courtData, financeData);
     }
 }

@@ -1,10 +1,8 @@
 package com.example.Gerenciamento.domain.court;
 
+import com.example.Gerenciamento.domain.finance.Finance;
 import com.example.Gerenciamento.domain.user.RequestUser;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -59,6 +57,10 @@ public class Court {
 
     @Column(name = "win_or_lose")
     private Boolean winOrLose;
+
+    @OneToOne
+    @JoinColumn(name = "number_process", referencedColumnName = "number_process", insertable = false, updatable = false)
+    private Finance finance;
 
     public Court(RequestCourt requestCourt){
         this.numberProcess = requestCourt.numberProcess();
