@@ -12,4 +12,5 @@ CREATE TABLE court (
     partner TEXT,
     department TEXT NOT NULL,
     win_or_lose BOOLEAN
+
 )
