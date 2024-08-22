@@ -18,7 +18,7 @@ public class Finance {
 
     @Id
     @Column(name = "number_process")
-    private String number_process;
+    private String numberProcess;
 
     @Column(name = "value_process")
     private Float valueProcess;
@@ -32,15 +32,11 @@ public class Finance {
     @Column(name = "value_percent")
     private Float valuePercent;
 
-    @OneToOne
-    @JoinColumn(name = "number_process", referencedColumnName = "number_process", insertable = false, updatable = false)
-    private Court court;
-
     public Finance (RequestFinance requestFinance){
         this.valueProcess = requestFinance.valueProcess();
         this.portion = requestFinance.portion();
         this.percent = requestFinance.percent();
         this.valuePercent = requestFinance.valuePercent();
-        this.number_process = requestFinance.number_process();
+        this.numberProcess = requestFinance.number_process();
     }
 }
