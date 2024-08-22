@@ -37,6 +37,6 @@ public class Finance {
         this.portion = requestFinance.portion();
         this.percent = requestFinance.percent();
         this.valuePercent = requestFinance.valuePercent();
-        this.numberProcess = requestFinance.number_process();
+        this.numberProcess = requestFinance.numberProcess();
     }
 }

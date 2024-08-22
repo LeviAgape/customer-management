@@ -4,6 +4,7 @@ import com.example.Gerenciamento.domain.finance.Finance;
 import com.example.Gerenciamento.domain.finance.FinanceRepository;
 import com.example.Gerenciamento.domain.finance.RequestFinance;
 import jakarta.persistence.EntityNotFoundException;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -36,17 +37,9 @@ public class CourtService {
         return ResponseEntity.ok(optionalCourt);
     }
 
-    public ResponseEntity createCourt(@Validated @RequestBody
-                                      RequestCourt courtData, @Validated @RequestBody RequestFinance financeData){
-        try {
-            Court newCourt = new Court(courtData);
-            courtRepository.save(newCourt);
-            Finance newFinance = new Finance(financeData);
-            financeRepository.save(newFinance);
-            return ResponseEntity.ok().body("Novo processo cadastrado");
-        } catch (Exception e){
-            throw new EntityNotFoundException("Cadastro não foi realizado");
-        }
-
+    public ResponseEntity registerCourt(@Validated @RequestBody RequestCourt data){
+        Court newCourt = new Court(data);
+        courtRepository.save(newCourt);
+        return ResponseEntity.ok().body("Novo processo registrado");
     }
 }

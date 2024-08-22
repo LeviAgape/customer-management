@@ -2,9 +2,7 @@ package com.example.Gerenciamento.controller;
 
 
 import com.example.Gerenciamento.domain.user.RequestUser;
-import com.example.Gerenciamento.domain.user.UserRepository;
 import com.example.Gerenciamento.domain.user.UserService;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
