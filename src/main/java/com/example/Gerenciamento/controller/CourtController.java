@@ -31,7 +31,7 @@ public class CourtController {
     }
 
     @PostMapping
-    public ResponseEntity createCourt(@Validated @RequestBody RequestCourt courtData, @Validated @RequestBody RequestFinance financeData){
-           return courtService.createCourt(courtData, financeData);
+    public ResponseEntity registerCourt(@Validated @RequestBody RequestCourt data){
+        return courtService.registerCourt(data);
     }
 }

@@ -1,9 +1,8 @@
 package com.example.Gerenciamento.domain.finance;
 
-import java.math.BigDecimal;
 
 public record RequestFinance(
-        String number_process,
+        String numberProcess,
 
         Float valueProcess,
 
