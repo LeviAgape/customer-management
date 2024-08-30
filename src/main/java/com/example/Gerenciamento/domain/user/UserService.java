@@ -1,6 +1,7 @@
 package com.example.Gerenciamento.domain.user;
 
 import jakarta.persistence.EntityNotFoundException;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,15 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    public ResponseEntity enterUser(@Validated @RequestBody RequestUser data){
+        Optional <User> optionalUser = userRepository.findByLogin(data.login());
+        Optional <User> userOptional = userRepository.findByPassword(data.password());
+        if (!optionalUser.isPresent() || !userOptional.isPresent()){
+            return ResponseEntity.ok().body("Usuário não encontrado");
+        }
+        return ResponseEntity.ok().body("Usuário existente");
+    }
 
     public ResponseEntity getAllUsers(){
         var getUsers = userRepository.findAll();

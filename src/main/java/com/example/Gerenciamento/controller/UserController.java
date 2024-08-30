@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -27,6 +28,11 @@ public class UserController {
     @PostMapping
     public ResponseEntity registerUser(@Validated @RequestBody  RequestUser data){
         return userService.registerUser(data);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity enterUser(@Validated @RequestBody RequestUser data){
+        return userService.enterUser(data);
     }
 
     @PutMapping
