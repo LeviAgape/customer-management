@@ -29,6 +29,11 @@ public class UserController {
         return userService.registerUser(data);
     }
 
+    @PostMapping("/login")
+    public ResponseEntity enterUser(@Validated @RequestBody RequestUser data){
+        return userService.enterUser(data);
+    }
+
     @PutMapping
     public ResponseEntity updateUser(@Validated @RequestBody RequestUser data){
         return userService.updateUser(data);
